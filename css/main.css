@@ -1,0 +1,1127 @@
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+main {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+}
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    width: 100%;
+    min-height: 86px;
+    padding: 18px clamp(24px, 5vw, 72px);
+    box-sizing: border-box;
+    background: rgba(45, 36, 48, .72);
+    border-bottom: 1px solid rgba(255, 255, 255, .16);
+    box-shadow: 0 18px 45px rgba(45, 36, 48, .18);
+    backdrop-filter: blur(16px);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    min-width: 210px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.logo img {
+    display: block;
+    width: 160px;
+    height: auto;
+    max-height: 58px;
+    object-fit: contain;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(18px, 3vw, 56px);
+    flex: 1;
+}
+
+.main-nav a {
+    color: #fff;
+    font-size: .78rem;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color .2s ease, opacity .2s ease;
+}
+
+.main-nav a:hover {
+    color: #ffd339;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    width: min(18vw, 230px);
+    min-width: 170px;
+    height: 42px;
+    padding: 0 8px 0 18px;
+    border: 1px solid rgba(255, 255, 255, .42);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .12);
+}
+
+.search input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #fff;
+    font: inherit;
+}
+
+.search input::placeholder {
+    color: rgba(255, 255, 255, .76);
+}
+
+.search button {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: grid;
+    place-items: center;
+    background: #5C2E7E;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .28s ease, visibility .28s ease;
+}
+
+.page-loader.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.page-loader.is-hidden {
+    display: none;
+}
+
+.loader-content {
+    display: grid;
+    place-items: center;
+    gap: 22px;
+    color: #fff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.loader-content img {
+    width: 132px;
+    height: auto;
+    animation: loaderPulse 1s ease-in-out infinite;
+}
+
+.loader-content span {
+    width: 54px;
+    height: 54px;
+    border: 5px solid rgba(255, 255, 255, .24);
+    border-top-color: #ffd339;
+    border-radius: 50%;
+    animation: loaderSpin .8s linear infinite;
+}
+
+.loader-content p {
+    margin: 0;
+    color: rgba(255, 255, 255, .9);
+    font-size: .82rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.item {
+    display: none;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: var(--background);
+}
+
+.item.active {
+    display: block;
+}
+
+.item .title {
+    width: min(92vw, 980px);
+    font-size: clamp(3rem, 9vw, 8rem);
+    color: #fff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    line-height: .9;
+
+    position: absolute;
+    left: 50%;
+    top: clamp(95px, 14vh, 140px);
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.item .fruit {
+    width: min(78vw, 980px);
+    max-height: 78vh;
+    object-fit: contain;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.item .energy-drink {
+    z-index: 3;
+    width: min(36vw, 390px);
+    min-width: 240px;
+    max-height: 86vh;
+    object-fit: contain;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.item .energy-drink-wide {
+    width: min(82vw, 900px);
+    min-width: 620px;
+    max-height: 86vh;
+}
+
+#prev, #next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: #eee9;
+    border: 1px solid #eee9;
+    color: #eee;
+    font-size: x-large;
+    font-family: monospace;
+    cursor : pointer;
+    z-index: 4;
+    border-radius: 50%;
+}
+
+#prev {
+    left: 30px;
+}
+
+#next {
+    right: 30px;
+}
+
+.smooth-divider {
+    position: relative;
+    z-index: 2;
+    height: 190px;
+    margin-top: 0;
+    overflow: hidden;
+    background-color: var(--divider-background, #5C2E7E);
+    pointer-events: none;
+    transition: background-color .45s ease;
+}
+
+.smooth-divider::before {
+    content: "";
+    position: absolute;
+    left: -7%;
+    bottom: -118px;
+    width: 114%;
+    height: 250px;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    background: #fffaf1;
+}
+
+.smooth-divider span {
+    position: absolute;
+    left: 16%;
+    bottom: -38px;
+    width: 92%;
+    height: 125px;
+    border-radius: 50%;
+    background: rgba(130, 0, 115, .08);
+    transform: rotate(-3deg);
+}
+
+.history-section {
+    position: relative;
+    overflow: hidden;
+    margin-top: 0;
+    padding: 96px clamp(24px, 6vw, 92px) 110px;
+    background: #fffaf1;
+    color: #2d2430;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    scroll-margin-top: 96px;
+}
+
+.history-section::before {
+    content: none;
+}
+
+.history-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(220px, 360px) minmax(0, 1fr);
+    gap: clamp(36px, 6vw, 92px);
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.history-heading {
+    position: sticky;
+    top: 118px;
+    align-self: start;
+}
+
+.history-heading span {
+    display: block;
+    margin-bottom: 14px;
+    color: #820073;
+    font-size: .84rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.history-heading h1 {
+    margin: 0;
+    color: #820073;
+    font-size: clamp(3.6rem, 7vw, 6.4rem);
+    line-height: .88;
+    font-weight: 950;
+}
+
+.history-content {
+    display: grid;
+    gap: 44px;
+}
+
+.history-content article {
+    max-width: 760px;
+}
+
+.history-content h2 {
+    margin: 0 0 22px;
+    color: #820073;
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    line-height: 1;
+}
+
+.history-content p {
+    margin: 0 0 18px;
+    color: #493c4b;
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+.history-content h3 {
+    margin: 34px 0 10px;
+    color: #820073;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+}
+
+.history-content strong {
+    display: inline-block;
+    color: #2d2430;
+    font-size: 1.25rem;
+}
+
+.products-section {
+    padding: 110px clamp(24px, 6vw, 92px);
+    background: #f7efe3;
+    color: #2d2430;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    scroll-margin-top: 96px;
+}
+
+.products-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.products-heading {
+    margin-bottom: 58px;
+    text-align: center;
+}
+
+.products-heading span {
+    display: block;
+    margin-bottom: 10px;
+    color: #820073;
+    font-size: .84rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.products-heading h1 {
+    margin: 0;
+    color: #2d2430;
+    font-size: clamp(3.4rem, 7vw, 6.2rem);
+    line-height: .9;
+}
+
+.product-showcase {
+    display: grid;
+    grid-template-columns: minmax(240px, 42%) minmax(0, 1fr);
+    gap: clamp(32px, 6vw, 76px);
+    align-items: center;
+    padding: clamp(34px, 5vw, 64px);
+    margin-bottom: 44px;
+    border: 1px solid rgba(45, 36, 48, .08);
+    border-radius: 8px;
+    background: #fffaf1;
+    box-shadow: 0 22px 70px rgba(72, 35, 76, .09);
+}
+
+.product-showcase:last-child {
+    margin-bottom: 0;
+}
+
+.product-image {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 520px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.product-image::before {
+    content: "";
+    position: absolute;
+    width: min(82%, 360px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    opacity: .92;
+    filter: blur(.2px);
+}
+
+.product-image::after {
+    content: "";
+    position: absolute;
+    bottom: 58px;
+    width: min(72%, 320px);
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(45, 36, 48, .18);
+    filter: blur(16px);
+}
+
+.product-image img {
+    position: relative;
+    z-index: 1;
+    width: min(48%, 220px);
+    max-height: 470px;
+    object-fit: contain;
+}
+
+.product-cheetah .product-image img,
+.product-duff .product-image img {
+    width: min(92%, 520px);
+    max-height: 430px;
+}
+
+.product-lime .product-image {
+    background: linear-gradient(145deg, #eff9e7, #d7edc4);
+}
+
+.product-lime .product-image::before {
+    background: #95D600;
+}
+
+.product-acai .product-image {
+    background: linear-gradient(145deg, #f4edf9, #dac2e8);
+}
+
+.product-acai .product-image::before {
+    background: #5C2E7E;
+}
+
+.product-mango .product-image {
+    background: linear-gradient(145deg, #fff5d6, #f6d36b);
+}
+
+.product-mango .product-image::before {
+    background: #EFAF00;
+}
+
+.product-cheetah .product-image {
+    background: linear-gradient(145deg, #efffd0, #8fd600);
+}
+
+.product-cheetah .product-image::before {
+    background: #95D600;
+}
+
+.product-duff .product-image {
+    background: linear-gradient(145deg, #fff0dc, #f0a22a);
+}
+
+.product-duff .product-image::before {
+    background: #f27d21;
+}
+
+.product-kicker {
+    display: block;
+    margin-bottom: 12px;
+    color: #820073;
+    font-size: .82rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.product-info h2 {
+    margin: 0 0 20px;
+    color: #2d2430;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: .98;
+}
+
+.product-info p {
+    margin: 0 0 16px;
+    color: #493c4b;
+    font-size: 1.02rem;
+    line-height: 1.72;
+}
+
+.specs {
+    margin: 30px 0 24px;
+    padding: 26px;
+    border-radius: 8px;
+    background: rgba(130, 0, 115, .06);
+}
+
+.specs h3,
+.specs h4 {
+    margin: 0 0 16px;
+    color: #820073;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+}
+
+.specs h4 {
+    margin-top: 24px;
+}
+
+.specs dl {
+    display: grid;
+    grid-template-columns: 145px 1fr;
+    gap: 12px 18px;
+    margin: 0;
+}
+
+.specs dt {
+    color: #2d2430;
+    font-weight: 900;
+}
+
+.specs dd {
+    margin: 0;
+    color: #493c4b;
+}
+
+.specs ul {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding-left: 20px;
+    color: #493c4b;
+}
+
+.product-info strong {
+    color: #820073;
+    font-size: 1.1rem;
+}
+
+.main-nav a.active {
+    color: #ffd339;
+}
+
+.order-body {
+    background: #fffaf1;
+}
+
+.order-page {
+    min-height: 100vh;
+    background: #fffaf1;
+    color: #2d2430;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.order-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 44%);
+    align-items: center;
+    gap: clamp(36px, 6vw, 88px);
+    min-height: 72vh;
+    padding: 140px clamp(24px, 6vw, 92px) 70px;
+    overflow: hidden;
+    background: #5C2E7E;
+    color: #fff;
+}
+
+.order-hero-text {
+    max-width: 720px;
+}
+
+.order-hero-text span,
+.form-heading span,
+.order-summary > span {
+    display: block;
+    margin-bottom: 12px;
+    color: #ffd339;
+    font-size: .84rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.order-hero-text h1 {
+    margin: 0 0 20px;
+    font-size: clamp(3.8rem, 8vw, 7.4rem);
+    line-height: .86;
+}
+
+.order-hero-text p {
+    max-width: 620px;
+    margin: 0;
+    color: rgba(255, 255, 255, .86);
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+.order-hero-products {
+    position: relative;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    min-height: 500px;
+}
+
+.order-hero-products::before {
+    content: "";
+    position: absolute;
+    width: min(92%, 520px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .13);
+}
+
+.order-hero-products img {
+    position: relative;
+    width: min(27%, 150px);
+    max-height: 430px;
+    object-fit: contain;
+    filter: drop-shadow(0 28px 28px rgba(0, 0, 0, .24));
+}
+
+.order-hero-products img:nth-child(1) {
+    transform: rotate(-10deg) translateX(28px);
+}
+
+.order-hero-products img:nth-child(2) {
+    z-index: 1;
+    width: min(34%, 190px);
+}
+
+.order-hero-products img:nth-child(3) {
+    transform: rotate(10deg) translateX(-28px);
+}
+
+.order-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+    gap: clamp(28px, 5vw, 62px);
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 86px clamp(24px, 6vw, 92px) 110px;
+}
+
+.order-form,
+.order-summary {
+    border: 1px solid rgba(45, 36, 48, .08);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 22px 70px rgba(72, 35, 76, .09);
+}
+
+.order-form {
+    display: grid;
+    gap: 24px;
+    padding: clamp(28px, 5vw, 48px);
+}
+
+.form-heading h2,
+.order-summary h2 {
+    margin: 0;
+    color: #820073;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    line-height: 1;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.order-form label,
+.flavor-options label {
+    display: grid;
+    gap: 8px;
+    color: #2d2430;
+    font-size: .92rem;
+    font-weight: 800;
+}
+
+.order-form input,
+.order-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(45, 36, 48, .18);
+    border-radius: 8px;
+    outline: 0;
+    background: #fffaf1;
+    color: #2d2430;
+    font: inherit;
+}
+
+.order-form input {
+    height: 48px;
+    padding: 0 14px;
+}
+
+.order-form textarea {
+    resize: vertical;
+    padding: 14px;
+}
+
+.order-form input:focus,
+.order-form textarea:focus {
+    border-color: #820073;
+    box-shadow: 0 0 0 4px rgba(130, 0, 115, .1);
+}
+
+.flavor-options {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+    padding: 22px;
+    border: 1px solid rgba(130, 0, 115, .16);
+    border-radius: 8px;
+    background: rgba(130, 0, 115, .05);
+}
+
+.flavor-options legend {
+    padding: 0 8px;
+    color: #820073;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.flavor-options label {
+    grid-template-columns: 1fr 96px;
+    align-items: center;
+}
+
+.order-submit {
+    width: fit-content;
+    min-width: 180px;
+    height: 52px;
+    padding: 0 24px;
+    border: 0;
+    border-radius: 999px;
+    background: #820073;
+    color: #fff;
+    font-size: .9rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.order-summary {
+    align-self: start;
+    position: sticky;
+    top: 112px;
+    display: grid;
+    gap: 22px;
+    padding: 28px;
+}
+
+.order-summary > span {
+    color: #820073;
+    margin-bottom: -10px;
+}
+
+.summary-item {
+    display: grid;
+    grid-template-columns: 62px 1fr;
+    gap: 16px;
+    align-items: center;
+    padding-top: 18px;
+    border-top: 1px solid rgba(45, 36, 48, .1);
+}
+
+.summary-item img {
+    width: 48px;
+    max-height: 86px;
+    object-fit: contain;
+}
+
+.summary-item strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #2d2430;
+}
+
+.summary-item p {
+    margin: 0;
+    color: #493c4b;
+    font-size: .94rem;
+    line-height: 1.45;
+}
+
+.site-footer {
+    padding: 72px clamp(24px, 6vw, 92px) 28px;
+    background: #2d2430;
+    color: #fff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    scroll-margin-top: 96px;
+}
+
+.footer-inner {
+    display: grid;
+    grid-template-columns: minmax(240px, 1.4fr) repeat(3, minmax(150px, 1fr));
+    gap: clamp(30px, 5vw, 64px);
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.footer-brand img {
+    display: block;
+    width: 150px;
+    height: auto;
+    margin-bottom: 24px;
+}
+
+.footer-brand p {
+    max-width: 360px;
+    margin: 0;
+    color: rgba(255, 255, 255, .78);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.footer-column h2 {
+    margin: 0 0 18px;
+    color: #ffd339;
+    font-size: .92rem;
+    text-transform: uppercase;
+}
+
+.footer-column ul {
+    display: grid;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-column li,
+.footer-column a {
+    color: rgba(255, 255, 255, .78);
+    font-size: .96rem;
+    line-height: 1.5;
+}
+
+.footer-column a {
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.footer-column a:hover {
+    color: #ffd339;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    max-width: 1180px;
+    margin: 54px auto 0;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, .14);
+    color: rgba(255, 255, 255, .62);
+    font-size: .88rem;
+}
+
+@media (max-width: 768px) {
+    .site-header {
+        flex-wrap: wrap;
+        gap: 14px;
+        min-height: 118px;
+        padding: 18px 20px;
+    }
+
+    .logo {
+        min-width: 0;
+    }
+
+    .logo img {
+        width: 128px;
+        max-height: 48px;
+    }
+
+    .main-nav {
+        order: 3;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 18px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+    }
+
+    .main-nav a {
+        font-size: .7rem;
+    }
+
+    .search {
+        width: 150px;
+        min-width: 150px;
+    }
+
+    .item .title {
+        top: 150px;
+    }
+
+    .item .fruit {
+        width: 118vw;
+    }
+
+    .item .energy-drink {
+        width: 56vw;
+        min-width: 210px;
+    }
+
+    .item .energy-drink-wide {
+        width: 148vw;
+        min-width: 520px;
+        max-height: 72vh;
+    }
+
+    .history-section {
+        margin-top: 0;
+        padding: 82px 22px 78px;
+    }
+
+    .smooth-divider {
+        height: 145px;
+        margin-top: 0;
+    }
+
+    .smooth-divider::before {
+        left: -24%;
+        bottom: -84px;
+        width: 148%;
+        height: 178px;
+    }
+
+    .smooth-divider span {
+        left: 10%;
+        bottom: -28px;
+        width: 112%;
+        height: 78px;
+    }
+
+    .history-inner {
+        grid-template-columns: 1fr;
+        gap: 34px;
+    }
+
+    .history-heading {
+        position: static;
+    }
+
+    .history-heading h1 {
+        font-size: clamp(3.1rem, 17vw, 4.8rem);
+    }
+
+    .history-content p {
+        font-size: 1rem;
+        line-height: 1.65;
+    }
+
+    .products-section {
+        padding: 78px 22px;
+    }
+
+    .products-heading {
+        margin-bottom: 34px;
+        text-align: left;
+    }
+
+    .products-heading h1 {
+        font-size: clamp(3rem, 16vw, 4.6rem);
+    }
+
+    .product-showcase {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 24px;
+    }
+
+    .product-image {
+        min-height: 390px;
+    }
+
+    .product-image img {
+        width: min(54%, 185px);
+        max-height: 340px;
+    }
+
+    .product-cheetah .product-image img,
+    .product-duff .product-image img {
+        width: min(96%, 360px);
+        max-height: 300px;
+    }
+
+    .specs {
+        padding: 20px;
+    }
+
+    .specs dl {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .specs dd {
+        margin-bottom: 12px;
+    }
+
+    .order-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 160px 22px 64px;
+    }
+
+    .order-hero-products {
+        min-height: 360px;
+    }
+
+    .order-hero-products img {
+        width: min(28%, 115px);
+        max-height: 310px;
+    }
+
+    .order-hero-products img:nth-child(2) {
+        width: min(36%, 148px);
+    }
+
+    .order-content {
+        grid-template-columns: 1fr;
+        padding: 64px 22px 82px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .flavor-options label {
+        grid-template-columns: 1fr;
+    }
+
+    .order-submit {
+        width: 100%;
+    }
+
+    .order-summary {
+        position: static;
+    }
+
+    .site-footer {
+        padding: 56px 22px 24px;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        margin-top: 38px;
+    }
+}
+
+@keyframes toActive {
+    from {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes loaderSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loaderPulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+.item.active img.fruit{
+    animation: toActive 0.5s ease-out 1;
+}
+
+.item.active .title {
+    animation: toActive 0.5s ease-out 1;
+}
+
+/* .item.active img.energy-drink {
+    animation: toActive 0.5s ease-out 1;
+} */

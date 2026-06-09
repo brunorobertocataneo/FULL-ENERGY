@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fa&ccedil;a seu pedido de produtos Full Energy.">
+    <meta name="author" content="Bruno Roberto Cataneo">
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="icon" type="image/png" href="assets/img/Logo.png">
+    <script src="js/loading.js" defer></script>
+
+    <title>Fa&ccedil;a seu pedido | Full Energy</title>
+</head>
+
+<body class="order-body">
+    <div class="page-loader page-loader-entry" aria-hidden="true">
+        <div class="loader-content">
+            <img src="assets/img/Logo.png" alt="">
+            <span></span>
+            <p>Preparando pedido</p>
+        </div>
+    </div>
+
+    <header class="site-header">
+        <a href="INDEX.HTML" class="logo" aria-label="Full Energy">
+            <img src="assets/img/Logo.png" alt="Full Energy">
+        </a>
+
+        <nav class="main-nav" aria-label="Menu principal">
+            <a href="INDEX.HTML#nossa-historia">Sobre n&oacute;s</a>
+            <a href="pedido.html" class="active">Fa&ccedil;a seu pedido</a>
+            <a href="INDEX.HTML#produtos">Produtos</a>
+            <a href="#contato">Contato</a>
+        </nav>
+
+        <form class="search" action="#" role="search">
+            <input type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+            <button type="submit" aria-label="Pesquisar">⌕</button>
+        </form>
+    </header>
+
+    <main class="order-page">
+        <section class="order-hero">
+            <div class="order-hero-text">
+                <span>Full Energy</span>
+                <h1>Fa&ccedil;a seu pedido</h1>
+                <p>Escolha seus sabores favoritos e envie sua solicita&ccedil;&atilde;o. Nossa equipe entra em contato para confirmar disponibilidade, valores e entrega.</p>
+            </div>
+
+            <div class="order-hero-products" aria-hidden="true">
+                <img src="assets/img/ACAI-COM-GUARANA.png" alt="">
+                <img src="assets/img/LIMAO-COM-GENGIBRE.png" alt="">
+                <img src="assets/img/MANGA-COM-MARACUJA.png" alt="">
+            </div>
+        </section>
+
+        <section class="order-content">
+            <form class="order-form" action="#" method="post">
+                <div class="form-heading">
+                    <span>Dados do pedido</span>
+                    <h2>Monte sua solicita&ccedil;&atilde;o</h2>
+                </div>
+
+                <div class="form-grid">
+                    <label>
+                        Nome completo
+                        <input type="text" name="nome" placeholder="Seu nome" required>
+                    </label>
+
+                    <label>
+                        Telefone ou WhatsApp
+                        <input type="tel" name="telefone" placeholder="(00) 00000-0000" required>
+                    </label>
+
+                    <label>
+                        Cidade
+                        <input type="text" name="cidade" placeholder="Sua cidade" required>
+                    </label>
+
+                    <label>
+                        E-mail
+                        <input type="email" name="email" placeholder="voce@email.com">
+                    </label>
+                </div>
+
+                <fieldset class="flavor-options">
+                    <legend>Sabores e quantidades</legend>
+
+                    <label>
+                        <span>Lim&atilde;o Siciliano com Gengibre</span>
+                        <input type="number" name="limao" min="0" value="0">
+                    </label>
+
+                    <label>
+                        <span>A&ccedil;a&iacute; com Guaran&aacute; Amaz&ocirc;nico</span>
+                        <input type="number" name="acai" min="0" value="0">
+                    </label>
+
+                    <label>
+                        <span>Manga com Maracuj&aacute;</span>
+                        <input type="number" name="manga" min="0" value="0">
+                    </label>
+                </fieldset>
+
+                <label>
+                    Observa&ccedil;&otilde;es
+                    <textarea name="observacoes" rows="5" placeholder="Informe detalhes sobre entrega, quantidade por caixa ou prefer&ecirc;ncia de contato."></textarea>
+                </label>
+
+                <button class="order-submit" type="submit">Enviar pedido</button>
+            </form>
+
+            <aside class="order-summary">
+                <span>Produtos dispon&iacute;veis</span>
+                <h2>Escolha seu sabor</h2>
+
+                <div class="summary-item">
+                    <img src="assets/img/LIMAO-COM-GENGIBRE.png" alt="Lim&atilde;o Siciliano com Gengibre">
+                    <div>
+                        <strong>Lim&atilde;o com Gengibre</strong>
+                        <p>Refrescante, c&iacute;trico e levemente picante.</p>
+                    </div>
+                </div>
+
+                <div class="summary-item">
+                    <img src="assets/img/ACAI-COM-GUARANA.png" alt="A&ccedil;a&iacute; com Guaran&aacute;">
+                    <div>
+                        <strong>A&ccedil;a&iacute; com Guaran&aacute;</strong>
+                        <p>Intenso, marcante e cheio de personalidade.</p>
+                    </div>
+                </div>
+
+                <div class="summary-item">
+                    <img src="assets/img/MANGA-COM-MARACUJA.png" alt="Manga com Maracuj&aacute;">
+                    <div>
+                        <strong>Manga com Maracuj&aacute;</strong>
+                        <p>Tropical, equilibrado e refrescante.</p>
+                    </div>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="contato">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="assets/img/Logo.png" alt="Full Energy">
+                <p>Energia que te move. Fale com a Full Energy para pedidos, parcerias e informa&ccedil;&otilde;es comerciais.</p>
+            </div>
+
+            <div class="footer-column">
+                <h2>Contato</h2>
+                <ul>
+                    <li><a href="tel:+5547999999999">(47) 99999-9999</a></li>
+                    <li><a href="mailto:contato@fullenergy.com.br">contato@fullenergy.com.br</a></li>
+                    <li>Santa Catarina, Brasil</li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h2>Atendimento</h2>
+                <ul>
+                    <li>Segunda a sexta</li>
+                    <li>08h &agrave;s 18h</li>
+                    <li><a href="pedido.html">Fa&ccedil;a seu pedido</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h2>Links</h2>
+                <ul>
+                    <li><a href="INDEX.HTML#nossa-historia">Nossa hist&oacute;ria</a></li>
+                    <li><a href="INDEX.HTML#produtos">Produtos</a></li>
+                    <li><a href="pedido.html">Pedidos</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>&copy; 2026 Full Energy. Todos os direitos reservados.</span>
+            <span>Desenvolvido para quem vive em movimento.</span>
+        </div>
+    </footer>
+</body>
+</html>
