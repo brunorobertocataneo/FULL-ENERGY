@@ -12,6 +12,8 @@
 
     <title>Full Energy</title>
 
+    <link rel="stylesheet" href="css/sections.css">
+    <script src="js/sections.js" defer></script>
 </head>
 
 <body>
@@ -74,31 +76,16 @@
     </div>
 
     <section class="history-section" id="nossa-historia">
-        <div class="history-inner">
-            <div class="history-heading">
-                <span>Full Energy</span>
-                <h1>Nossa Hist&oacute;ria</h1>
+        <div class="story-layout" data-reveal>
+            <div class="story-copy">
+                <span class="section-label">Nossa história</span>
+                <h1>Energia que te move.</h1>
+                <p>A Full Energy nasceu em Santa Catarina com a ideia de criar uma bebida que acompanhasse o ritmo de quem estuda, trabalha ou treina.</p>
+                <p>Do frescor do limão com gengibre às combinações com açaí e maracujá, a marca cresceu explorando sabores com personalidade própria.</p>
+                <a class="product-order" href="#produtos">Conhecer os sabores</a>
             </div>
-
-            <div class="history-content">
-                <article>
-                    <h2>Conhe&ccedil;a a hist&oacute;ria da Full Energy</h2>
-                    <p>A hist&oacute;ria da Full Energy come&ccedil;ou com um prop&oacute;sito simples: criar uma bebida que acompanhasse o ritmo de quem busca ir al&eacute;m todos os dias.</p>
-                    <p>Fundada em Santa Catarina, a Full Energy nasceu da paix&atilde;o por inova&ccedil;&atilde;o e do desejo de oferecer uma fonte de energia que unisse sabor, qualidade e desempenho. Desde o in&iacute;cio, nosso objetivo foi desenvolver produtos capazes de impulsionar atletas, estudantes, profissionais e todos aqueles que transformam desafios em conquistas.</p>
-                    <p>Os primeiros passos foram marcados por muita dedica&ccedil;&atilde;o, pesquisa e desenvolvimento. Cada f&oacute;rmula foi cuidadosamente estudada para entregar uma experi&ecirc;ncia &uacute;nica, combinando ingredientes selecionados com sabores marcantes e uma identidade moderna que representa a for&ccedil;a e a determina&ccedil;&atilde;o de nossos consumidores.</p>
-                    <p>Com o passar dos anos, a Full Energy conquistou espa&ccedil;o no mercado, ampliando sua linha de produtos e investindo constantemente em tecnologia, inova&ccedil;&atilde;o e qualidade. O que come&ccedil;ou como um sonho tornou-se uma marca reconhecida por oferecer energia, foco e disposi&ccedil;&atilde;o para milhares de pessoas.</p>
-                    <p>Hoje, a Full Energy continua evoluindo, acompanhando as tend&ecirc;ncias do mercado e desenvolvendo novos sabores que unem performance e experi&ecirc;ncia. Nossa miss&atilde;o permanece a mesma: entregar energia para quem busca viver intensamente cada momento.</p>
-                </article>
-
-                <article>
-                    <h2>Qualidade que Move Voc&ecirc;</h2>
-                    <p>Na Full Energy, a qualidade est&aacute; presente em cada etapa do processo produtivo.</p>
-                    <p>Nossa equipe t&eacute;cnica acompanha rigorosamente a sele&ccedil;&atilde;o das mat&eacute;rias-primas, o desenvolvimento das f&oacute;rmulas e o envase dos produtos, garantindo que cada lata entregue o padr&atilde;o de excel&ecirc;ncia que nossos consumidores merecem.</p>
-                    <p>Por meio de processos modernos e constantes an&aacute;lises de qualidade, buscamos assegurar sabor, seguran&ccedil;a e desempenho em todos os nossos produtos.</p>
-                    <p>Mais do que um energ&eacute;tico, a Full Energy representa atitude, movimento e a energia necess&aacute;ria para transformar objetivos em resultados.</p>
-                    <h3>Full Energy</h3>
-                    <strong>Energia que te move.</strong>
-                </article>
+            <div class="story-image">
+                <img src="assets/img/ACAI-COM-GUARANA.png" alt="Lata de açaí com guaraná da Full Energy" loading="lazy">
             </div>
         </div>
     </section>
@@ -110,179 +97,92 @@
                 <h1>Produtos</h1>
             </div>
 
-            <article class="product-showcase product-lime">
-                <div class="product-image">
-                    <img src="assets/img/LIMAO-COM-GENGIBRE.png" alt="Full Energy Lim&atilde;o Siciliano com Gengibre">
-                </div>
-
-                <div class="product-info">
-                    <span class="product-kicker">Lim&atilde;o Siciliano com Gengibre</span>
-                    <h2>Uma explos&atilde;o de sabor e energia em cada gole.</h2>
-                    <p>O Full Energy Lim&atilde;o Siciliano com Gengibre combina o frescor c&iacute;trico do lim&atilde;o siciliano com o toque marcante e levemente picante do gengibre, criando uma experi&ecirc;ncia &uacute;nica para quem busca disposi&ccedil;&atilde;o e desempenho ao longo do dia.</p>
-                    <p>Desenvolvido para acompanhar uma rotina intensa, este sabor entrega energia, foco e refresc&acirc;ncia na medida certa. Sua f&oacute;rmula foi criada para proporcionar uma sensa&ccedil;&atilde;o revigorante desde o primeiro gole, tornando-se a escolha ideal para treinos, estudos, trabalho ou momentos que exigem m&aacute;xima performance.</p>
-
-                    <div class="specs">
-                        <h3>Especifica&ccedil;&otilde;es</h3>
-                        <dl>
+            <div class="flavor-grid">
+                <article class="flavor-card flavor-limao" data-reveal>
+                    <div class="flavor-art"><img src="assets/img/LIMAO-COM-GENGIBRE.png" alt="" loading="lazy"></div>
+                    <div class="flavor-body">
+                        <h2>Lim&atilde;o Siciliano com Gengibre</h2>
+                        <p>Cítrico, refrescante e levemente picante.</p>
+                        <details><summary>Ver detalhes</summary><dl>
                             <dt>Volume</dt>
                             <dd>250 ml</dd>
                             <dt>Perfil de Sabor</dt>
                             <dd>Refrescante, c&iacute;trico e levemente picante</dd>
                             <dt>Destaque</dt>
                             <dd>A combina&ccedil;&atilde;o perfeita entre a intensidade do gengibre e a leveza do lim&atilde;o siciliano.</dd>
-                        </dl>
-                        <h4>Benef&iacute;cios</h4>
-                        <ul>
-                            <li>Mais energia para o dia a dia</li>
-                            <li>Maior foco e concentra&ccedil;&atilde;o</li>
-                            <li>Sensa&ccedil;&atilde;o refrescante prolongada</li>
-                            <li>Ideal para atividades f&iacute;sicas e mentais</li>
-                        </ul>
+                        </dl></details>
+                        <a class="product-order" href="pedido.html?sabor=limao#pedido" aria-label="Pedir Lim&atilde;o Siciliano com Gengibre">Pedir este sabor</a>
                     </div>
+                </article>
 
-                    <a class="product-order" href="pedido.html?sabor=limao#pedido">Pedir este sabor</a>
-                </div>
-            </article>
-
-            <article class="product-showcase product-acai">
-                <div class="product-image">
-                    <img src="assets/img/ACAI-COM-GUARANA.png" alt="Full Energy A&ccedil;a&iacute; com Guaran&aacute; Amaz&ocirc;nico">
-                </div>
-
-                <div class="product-info">
-                    <span class="product-kicker">A&ccedil;a&iacute; com Guaran&aacute; Amaz&ocirc;nico</span>
-                    <h2>Uma combina&ccedil;&atilde;o inspirada na for&ccedil;a da Amaz&ocirc;nia.</h2>
-                    <p>O Full Energy A&ccedil;a&iacute; com Guaran&aacute; Amaz&ocirc;nico re&uacute;ne dois dos ingredientes mais ic&ocirc;nicos do Brasil em uma bebida marcante, intensa e cheia de personalidade. O sabor encorpado do a&ccedil;a&iacute; se une &agrave; energia natural do guaran&aacute; para criar uma experi&ecirc;ncia &uacute;nica, perfeita para quem busca disposi&ccedil;&atilde;o e performance sem abrir m&atilde;o do sabor.</p>
-                    <p>Desenvolvido para acompanhar os desafios do dia a dia, este energ&eacute;tico entrega energia, foco e resist&ecirc;ncia, proporcionando o impulso necess&aacute;rio para manter o ritmo em qualquer situa&ccedil;&atilde;o.</p>
-
-                    <div class="specs">
-                        <h3>Especifica&ccedil;&otilde;es</h3>
-                        <dl>
+                <article class="flavor-card flavor-acai" data-reveal>
+                    <div class="flavor-art"><img src="assets/img/ACAI-COM-GUARANA.png" alt="" loading="lazy"></div>
+                    <div class="flavor-body">
+                        <h2>A&ccedil;a&iacute; com Guaran&aacute; Amaz&ocirc;nico</h2>
+                        <p>Frutado, intenso e com toque de guaraná.</p>
+                        <details><summary>Ver detalhes</summary><dl>
                             <dt>Volume</dt>
                             <dd>250 ml</dd>
                             <dt>Perfil de Sabor</dt>
                             <dd>Intenso, levemente adocicado e marcante</dd>
                             <dt>Destaque</dt>
                             <dd>A uni&atilde;o do tradicional a&ccedil;a&iacute; brasileiro com a pot&ecirc;ncia do guaran&aacute; amaz&ocirc;nico.</dd>
-                        </dl>
-                        <h4>Benef&iacute;cios</h4>
-                        <ul>
-                            <li>Energia duradoura</li>
-                            <li>Maior foco e concentra&ccedil;&atilde;o</li>
-                            <li>Sensa&ccedil;&atilde;o de disposi&ccedil;&atilde;o prolongada</li>
-                            <li>Ideal para treinos, estudos e trabalho</li>
-                        </ul>
+                        </dl></details>
+                        <a class="product-order" href="pedido.html?sabor=acai#pedido" aria-label="Pedir A&ccedil;a&iacute; com Guaran&aacute; Amaz&ocirc;nico">Pedir este sabor</a>
                     </div>
+                </article>
 
-                    <a class="product-order" href="pedido.html?sabor=acai#pedido">Pedir este sabor</a>
-                </div>
-            </article>
-
-            <article class="product-showcase product-mango">
-                <div class="product-image">
-                    <img src="assets/img/MANGA-COM-MARACUJA.png" alt="Full Energy Manga com Maracuj&aacute;">
-                </div>
-
-                <div class="product-info">
-                    <span class="product-kicker">Manga com Maracuj&aacute;</span>
-                    <h2>O equil&iacute;brio perfeito entre sabor tropical e energia.</h2>
-                    <p>O Full Energy Manga com Maracuj&aacute; combina a do&ccedil;ura natural da manga com a refresc&acirc;ncia caracter&iacute;stica do maracuj&aacute;, criando uma bebida tropical, vibrante e extremamente saborosa. Sua f&oacute;rmula foi desenvolvida para oferecer energia e foco enquanto proporciona uma experi&ecirc;ncia refrescante e agrad&aacute;vel.</p>
-                    <p>Ideal para quem procura uma alternativa diferenciada aos sabores tradicionais, este energ&eacute;tico entrega disposi&ccedil;&atilde;o e desempenho com um toque tropical que surpreende a cada gole.</p>
-
-                    <div class="specs">
-                        <h3>Especifica&ccedil;&otilde;es</h3>
-                        <dl>
+                <article class="flavor-card flavor-manga" data-reveal>
+                    <div class="flavor-art"><img src="assets/img/MANGA-COM-MARACUJA.png" alt="" loading="lazy"></div>
+                    <div class="flavor-body">
+                        <h2>Manga com Maracuj&aacute;</h2>
+                        <p>Tropical, com o dulçor da manga e a acidez do maracujá.</p>
+                        <details><summary>Ver detalhes</summary><dl>
                             <dt>Volume</dt>
                             <dd>250 ml</dd>
                             <dt>Perfil de Sabor</dt>
                             <dd>Tropical, equilibrado e refrescante</dd>
                             <dt>Destaque</dt>
                             <dd>A combina&ccedil;&atilde;o perfeita entre a suavidade da manga e a refresc&acirc;ncia do maracuj&aacute;.</dd>
-                        </dl>
-                        <h4>Benef&iacute;cios</h4>
-                        <ul>
-                            <li>Mais energia para o dia a dia</li>
-                            <li>Foco e disposi&ccedil;&atilde;o prolongados</li>
-                            <li>Sabor tropical marcante</li>
-                            <li>Ideal para atividades f&iacute;sicas e momentos de lazer</li>
-                        </ul>
+                        </dl></details>
+                        <a class="product-order" href="pedido.html?sabor=manga#pedido" aria-label="Pedir Manga com Maracuj&aacute;">Pedir este sabor</a>
                     </div>
+                </article>
 
-                    <a class="product-order" href="pedido.html?sabor=manga#pedido">Pedir este sabor</a>
-                </div>
-            </article>
-
-            <article class="product-showcase product-cheetah">
-                <div class="product-image">
-                    <img src="assets/img/Cheetah-Chug!-XE.png" alt="Cheetah Chug! XE Morango Selvagem com Kiwi Neon">
-                </div>
-
-                <div class="product-info">
-                    <span class="product-kicker">Cheetah Chug! XE</span>
-                    <h2>Morango Selvagem + Kiwi Neon.</h2>
-                    <p>O Cheetah Chug! XE combina a intensidade adocicada do morango selvagem com o frescor vibrante do kiwi neon, criando uma experi&ecirc;ncia &uacute;nica para quem vive em alta velocidade. Inspirado na energia e agilidade do guepardo, este energ&eacute;tico foi desenvolvido para quem busca desempenho m&aacute;ximo sem abrir m&atilde;o de um sabor marcante e diferenciado.</p>
-                    <p>Sua combina&ccedil;&atilde;o de frutas oferece um equil&iacute;brio perfeito entre o doce e o refrescante, proporcionando uma sensa&ccedil;&atilde;o revigorante desde o primeiro gole. Com uma identidade ousada e moderna, o Cheetah Chug! XE &eacute; a escolha ideal para quem quer se destacar e manter o ritmo em qualquer desafio.</p>
-                    <p>Ideal para treinos, estudos, eventos, jogos ou qualquer momento em que voc&ecirc; precise de energia extra e foco total.</p>
-
-                    <div class="specs">
-                        <h3>Especifica&ccedil;&otilde;es</h3>
-                        <dl>
+                <article class="flavor-card flavor-cheetah" data-reveal>
+                    <div class="flavor-art"><img src="assets/img/Cheetah-Chug!-XE.png" alt="" loading="lazy"></div>
+                    <div class="flavor-body">
+                        <h2>Cheetah Chug! XE</h2>
+                        <p>Uma combinação de morango selvagem e kiwi.</p>
+                        <details><summary>Ver detalhes</summary><dl>
                             <dt>Volume</dt>
                             <dd>250 ml</dd>
                             <dt>Perfil de Sabor</dt>
                             <dd>Frutado, refrescante e levemente &aacute;cido</dd>
                             <dt>Destaque</dt>
                             <dd>A combina&ccedil;&atilde;o perfeita entre a do&ccedil;ura do morango selvagem e a explos&atilde;o refrescante do kiwi neon.</dd>
-                        </dl>
-                        <h4>Benef&iacute;cios</h4>
-                        <ul>
-                            <li>Energia intensa para acompanhar sua rotina</li>
-                            <li>Mais foco e concentra&ccedil;&atilde;o</li>
-                            <li>Sensa&ccedil;&atilde;o refrescante e revigorante</li>
-                            <li>Sabor exclusivo e marcante</li>
-                            <li>Ideal para atividades f&iacute;sicas, estudos e entretenimento</li>
-                        </ul>
+                        </dl></details>
+                        <a class="product-order" href="pedido.html?sabor=cheetah#pedido" aria-label="Pedir Cheetah Chug! XE">Pedir este sabor</a>
                     </div>
+                </article>
 
-                    <a class="product-order" href="pedido.html?sabor=cheetah#pedido">Pedir este sabor</a>
-                </div>
-            </article>
-
-            <article class="product-showcase product-duff">
-                <div class="product-image">
-                    <img src="assets/img/duff.png" alt="Duff Energy Original Laranja com Cola">
-                </div>
-
-                <div class="product-info">
-                    <span class="product-kicker">Duff Energy Original</span>
-                    <h2>Laranja + Cola.</h2>
-                    <p>O Duff Energy Original combina o refrescante sabor c&iacute;trico da laranja com as notas marcantes e inconfund&iacute;veis da cola, criando uma experi&ecirc;ncia &uacute;nica que une nostalgia, divers&atilde;o e performance. Desenvolvido para quem busca energia e disposi&ccedil;&atilde;o ao longo do dia, este energ&eacute;tico entrega um sabor equilibrado e envolvente que agrada desde o primeiro gole.</p>
-                    <p>Sua f&oacute;rmula foi pensada para proporcionar mais foco, resist&ecirc;ncia e atitude, tornando-se a escolha ideal para acompanhar momentos de lazer, estudos, trabalho ou atividades f&iacute;sicas. Com uma identidade ousada e um sabor que remete aos cl&aacute;ssicos refrigerantes americanos, o Duff Energy Original &eacute; muito mais do que um energ&eacute;tico: &eacute; uma experi&ecirc;ncia.</p>
-                    <p>Ideal para quem procura uma bebida energ&eacute;tica diferenciada, com personalidade e um sabor familiar que nunca sai de moda.</p>
-
-                    <div class="specs">
-                        <h3>Especifica&ccedil;&otilde;es</h3>
-                        <dl>
+                <article class="flavor-card flavor-duff" data-reveal>
+                    <div class="flavor-art"><img src="assets/img/duff.png" alt="" loading="lazy"></div>
+                    <div class="flavor-body">
+                        <h2>Duff Energy Original</h2>
+                        <p>Laranja cítrica com o sabor clássico de cola.</p>
+                        <details><summary>Ver detalhes</summary><dl>
                             <dt>Volume</dt>
                             <dd>250 ml</dd>
                             <dt>Perfil de Sabor</dt>
                             <dd>C&iacute;trico, adocicado e refrescante</dd>
                             <dt>Destaque</dt>
                             <dd>A combina&ccedil;&atilde;o perfeita entre a intensidade da cola e o frescor vibrante da laranja.</dd>
-                        </dl>
-                        <h4>Benef&iacute;cios</h4>
-                        <ul>
-                            <li>Mais energia para enfrentar o dia</li>
-                            <li>Aumento da concentra&ccedil;&atilde;o e do foco</li>
-                            <li>Sensa&ccedil;&atilde;o refrescante prolongada</li>
-                            <li>Sabor cl&aacute;ssico com toque moderno</li>
-                            <li>Ideal para estudos, trabalho, esportes e entretenimento</li>
-                        </ul>
+                        </dl></details>
+                        <a class="product-order" href="pedido.html?sabor=duff#pedido" aria-label="Pedir Duff Energy Original">Pedir este sabor</a>
                     </div>
-
-                    <a class="product-order" href="pedido.html?sabor=duff#pedido">Pedir este sabor</a>
-                </div>
-            </article>
+                </article>
+            </div>
         </div>
     </section>
 

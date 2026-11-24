@@ -10,6 +10,36 @@ if (selectedQuantity) {
     selectedQuantity.value = '1';
 }
 
+const summary = document.querySelector('#summary-items');
+const emptySummary = document.querySelector('#summary-empty');
+const orderTotal = document.querySelector('#order-total');
+const mobileTotal = document.querySelector('#mobile-total');
+
+function chosenItems() {
+    return quantities.filter(input => Number.isInteger(input.valueAsNumber) && input.valueAsNumber > 0);
+}
+
+function flavorName(input) {
+    return input.parentElement.querySelector('span').textContent;
+}
+
+function updateSummary() {
+    const items = chosenItems();
+    const total = items.reduce((sum, input) => sum + input.valueAsNumber, 0);
+    const label = `${total} ${total === 1 ? 'unidade' : 'unidades'}`;
+    orderTotal.textContent = label;
+    mobileTotal.textContent = label;
+    emptySummary.hidden = items.length > 0;
+    summary.replaceChildren(...items.map(input => {
+        const row = document.createElement('li');
+        row.textContent = `${input.valueAsNumber} × ${flavorName(input)}`;
+        return row;
+    }));
+}
+
+quantities.forEach(input => input.addEventListener('input', updateSummary));
+updateSummary();
+
 form.querySelector('button[type="submit"]').disabled = false;
 form.addEventListener('input', () => {
     preview.hidden = true;
@@ -18,7 +48,7 @@ form.addEventListener('input', () => {
 
 form.addEventListener('submit', event => {
     event.preventDefault();
-    const items = quantities.filter(input => input.valueAsNumber > 0);
+    const items = chosenItems();
     if (!items.length) {
         error.textContent = 'Escolha pelo menos um sabor e informe a quantidade.';
         error.hidden = false;
@@ -31,7 +61,7 @@ form.addEventListener('submit', event => {
         'Olá! Gostaria de fazer um pedido Full Energy.',
         '',
         ...items.map(input => {
-            const flavor = input.parentElement.querySelector('span').textContent;
+            const flavor = flavorName(input);
             return `- ${input.valueAsNumber} × ${flavor}`;
         }),
         '',

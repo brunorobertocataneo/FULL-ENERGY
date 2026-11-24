@@ -11,6 +11,7 @@
     <script src="js/order.js" defer></script>
 
     <title>Fa&ccedil;a seu pedido | Full Energy</title>
+    <link rel="stylesheet" href="css/sections.css">
 </head>
 
 <body class="order-body">
@@ -76,26 +77,31 @@
                 <fieldset class="flavor-options">
                     <legend>Sabores e quantidades</legend>
 
-                    <label>
+                    <label class="quantity-row flavor-limao">
+                        <img src="assets/img/LIMAO-COM-GENGIBRE.png" alt="" loading="lazy">
                         <span>Lim&atilde;o Siciliano com Gengibre</span>
                         <input type="number" name="limao" min="0" value="0">
                     </label>
 
-                    <label>
+                    <label class="quantity-row flavor-acai">
+                        <img src="assets/img/ACAI-COM-GUARANA.png" alt="" loading="lazy">
                         <span>A&ccedil;a&iacute; com Guaran&aacute; Amaz&ocirc;nico</span>
                         <input type="number" name="acai" min="0" value="0">
                     </label>
 
-                    <label>
+                    <label class="quantity-row flavor-manga">
+                        <img src="assets/img/MANGA-COM-MARACUJA.png" alt="" loading="lazy">
                         <span>Manga com Maracuj&aacute;</span>
                         <input type="number" name="manga" min="0" value="0">
                     </label>
-                    <label>
+                    <label class="quantity-row flavor-cheetah">
+                        <img src="assets/img/Cheetah-Chug!-XE.png" alt="" loading="lazy">
                         <span>Cheetah Chug! XE</span>
                         <input type="number" name="cheetah" min="0" value="0">
                     </label>
 
-                    <label>
+                    <label class="quantity-row flavor-duff">
+                        <img src="assets/img/duff.png" alt="" loading="lazy">
                         <span>Duff Energy Original</span>
                         <input type="number" name="duff" min="0" value="0">
                     </label>
@@ -107,7 +113,10 @@
                 </label>
 
                 <p id="order-error" role="alert" hidden></p>
-                <button class="order-submit" type="submit" disabled>Revisar pedido</button>
+                <div class="review-bar">
+                    <span id="mobile-total" aria-hidden="true">0 unidades</span>
+                    <button class="order-submit" type="submit" disabled>Revisar pedido</button>
+                </div>
                 <noscript>Ative o JavaScript para montar o pedido.</noscript>
                 <section class="order-preview" hidden>
                     <h3 id="preview-title" tabindex="-1">Confira seu pedido</h3>
@@ -117,33 +126,11 @@
                 </section>
             </form>
 
-            <aside class="order-summary">
-                <span>Sugestões de sabores</span>
-                <h2>Escolha seu sabor</h2>
-
-                <div class="summary-item">
-                    <img src="assets/img/LIMAO-COM-GENGIBRE.png" alt="Lim&atilde;o Siciliano com Gengibre">
-                    <div>
-                        <strong>Lim&atilde;o com Gengibre</strong>
-                        <p>Refrescante, c&iacute;trico e levemente picante.</p>
-                    </div>
-                </div>
-
-                <div class="summary-item">
-                    <img src="assets/img/ACAI-COM-GUARANA.png" alt="A&ccedil;a&iacute; com Guaran&aacute;">
-                    <div>
-                        <strong>A&ccedil;a&iacute; com Guaran&aacute;</strong>
-                        <p>Intenso, marcante e cheio de personalidade.</p>
-                    </div>
-                </div>
-
-                <div class="summary-item">
-                    <img src="assets/img/MANGA-COM-MARACUJA.png" alt="Manga com Maracuj&aacute;">
-                    <div>
-                        <strong>Manga com Maracuj&aacute;</strong>
-                        <p>Tropical, equilibrado e refrescante.</p>
-                    </div>
-                </div>
+            <aside class="order-summary live-summary" aria-labelledby="summary-title">
+                <h2 id="summary-title">Seu pedido</h2>
+                <p id="order-total" aria-live="polite">0 unidades</p>
+                <p id="summary-empty">Escolha os sabores para ver o resumo aqui.</p>
+                <ul id="summary-items"></ul>
             </aside>
         </section>
     </main>
