@@ -1,40 +1,30 @@
-let list = document.querySelectorAll('.item');
-let next = document.getElementById('next');
-let prev = document.getElementById('prev');
-let divider = document.querySelector('.smooth-divider');
-
-let count = list.length;
+const carousel = document.querySelector('.product-carousel');
+const slides = [...carousel.querySelectorAll('.item')];
+const divider = document.querySelector('.smooth-divider');
+const status = document.querySelector('#slide-status');
 let active = 0;
 
-function getSlideColor(index) {
-    return getComputedStyle(list[index]).getPropertyValue('--background').trim();
+function showSlide(index, direction) {
+    slides[active].classList.remove('active');
+    active = (index + slides.length) % slides.length;
+    carousel.style.setProperty('--slide-offset', `${direction * 28}px`);
+    const slide = slides[active];
+    slide.classList.add('active');
+    divider.style.setProperty('--divider-background', slide.style.getPropertyValue('--background'));
+    status.textContent = `${active + 1} de ${slides.length} — ${slide.querySelector('.title').textContent}`;
 }
 
-function updateDividerColor() {
-    if (!divider) {
-        return;
+function moveSlide(direction) {
+    showSlide(active + direction, direction);
+}
+
+document.querySelector('#prev').addEventListener('click', () => moveSlide(-1));
+document.querySelector('#next').addEventListener('click', () => moveSlide(1));
+carousel.addEventListener('keydown', event => {
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        moveSlide(event.key === 'ArrowLeft' ? -1 : 1);
     }
+});
 
-    divider.style.setProperty('--divider-background', getSlideColor(active));
-}
-
-function updateSlide(newIndex) {
-    let activeOld = document.querySelector('.item.active');
-    activeOld.classList.remove('active');
-
-    active = newIndex;
-    list[active].classList.add('active');
-    updateDividerColor();
-}
-
-updateDividerColor();
-
-next.onclick = () => {
-    let newIndex = active >= count - 1 ? 0 : active + 1;
-    updateSlide(newIndex);
-}
-
-prev.onclick = () => {
-    let newIndex = active <= 0 ? count - 1 : active - 1;
-    updateSlide(newIndex);
-}
+showSlide(0, 1);

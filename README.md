@@ -6,16 +6,16 @@ Site de apresentação da Full Energy, uma marca de bebidas energéticas. O proj
 
 - Carrossel de produtos com navegação por setas e transições entre os sabores.
 - Catálogo com imagens, descrições e especificações dos produtos.
-- Formulário de pedido com dados de contato, quantidades por sabor e observações.
+- Formulário com seleção de sabor pelo catálogo, revisão das quantidades e compartilhamento pelo WhatsApp.
 - Seção de contato e layout adaptado para telas menores.
 
-O projeto está na etapa de **front-end**. O formulário de pedido e o campo de pesquisa ainda não estão integrados a um serviço. O formulário permite preencher os dados na página, mas o envio de pedidos não está implementado.
+O site é estático. O formulário prepara a mensagem no navegador e abre o WhatsApp para que o cliente escolha o contato da Full Energy e confirme o envio.
 
 ## Tecnologias
 
 - **HTML** para a estrutura das páginas.
 - **CSS** para o layout, a responsividade e as animações.
-- **JavaScript** para o carrossel e o indicador de carregamento na navegação.
+- **JavaScript** para o carrossel e a preparação da mensagem de pedido.
 
 ## Como executar localmente
 
@@ -44,7 +44,7 @@ Em sistemas que usam o comando `python3`, execute `python3 -m http.server 8000`.
 | [pedido.html](pedido.html) | Página com o formulário de pedido |
 | [css/main.css](css/main.css) | Estilos compartilhados entre as páginas |
 | [js/script.js](js/script.js) | Navegação do carrossel |
-| [js/loading.js](js/loading.js) | Indicador de carregamento na navegação |
+| [js/order.js](js/order.js) | Seleção do sabor, resumo e compartilhamento pelo WhatsApp |
 | [assets/img/](assets/img/) | Logo, imagens dos produtos e fundos |
 
 ## Autor

@@ -8,19 +8,12 @@
 
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="icon" type="image/png" href="assets/img/Logo.png">
-    <script src="js/loading.js" defer></script>
+    <script src="js/order.js" defer></script>
 
     <title>Fa&ccedil;a seu pedido | Full Energy</title>
 </head>
 
 <body class="order-body">
-    <div class="page-loader page-loader-entry" aria-hidden="true">
-        <div class="loader-content">
-            <img src="assets/img/Logo.png" alt="">
-            <span></span>
-            <p>Preparando pedido</p>
-        </div>
-    </div>
 
     <header class="site-header">
         <a href="index.html" class="logo" aria-label="Full Energy">
@@ -34,10 +27,6 @@
             <a href="#contato">Contato</a>
         </nav>
 
-        <form class="search" action="#" role="search">
-            <input type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-            <button type="submit" aria-label="Pesquisar">⌕</button>
-        </form>
     </header>
 
     <main class="order-page">
@@ -45,7 +34,7 @@
             <div class="order-hero-text">
                 <span>Full Energy</span>
                 <h1>Fa&ccedil;a seu pedido</h1>
-                <p>Escolha seus sabores favoritos e envie sua solicita&ccedil;&atilde;o. Nossa equipe entra em contato para confirmar disponibilidade, valores e entrega.</p>
+                <p>Escolha seus sabores favoritos e envie sua solicita&ccedil;&atilde;o. Confira o resumo e compartilhe a mensagem pelo WhatsApp.</p>
             </div>
 
             <div class="order-hero-products" aria-hidden="true">
@@ -56,7 +45,7 @@
         </section>
 
         <section class="order-content">
-            <form class="order-form" action="#" method="post">
+            <form class="order-form" id="pedido" method="post">
                 <div class="form-heading">
                     <span>Dados do pedido</span>
                     <h2>Monte sua solicita&ccedil;&atilde;o</h2>
@@ -69,8 +58,8 @@
                     </label>
 
                     <label>
-                        Telefone ou WhatsApp
-                        <input type="tel" name="telefone" placeholder="(00) 00000-0000" required>
+                        Telefone para retorno (opcional)
+                        <input type="tel" name="telefone" placeholder="(00) 00000-0000">
                     </label>
 
                     <label>
@@ -101,6 +90,15 @@
                         <span>Manga com Maracuj&aacute;</span>
                         <input type="number" name="manga" min="0" value="0">
                     </label>
+                    <label>
+                        <span>Cheetah Chug! XE</span>
+                        <input type="number" name="cheetah" min="0" value="0">
+                    </label>
+
+                    <label>
+                        <span>Duff Energy Original</span>
+                        <input type="number" name="duff" min="0" value="0">
+                    </label>
                 </fieldset>
 
                 <label>
@@ -108,11 +106,19 @@
                     <textarea name="observacoes" rows="5" placeholder="Informe detalhes sobre entrega, quantidade por caixa ou prefer&ecirc;ncia de contato."></textarea>
                 </label>
 
-                <button class="order-submit" type="submit">Enviar pedido</button>
+                <p id="order-error" role="alert" hidden></p>
+                <button class="order-submit" type="submit" disabled>Revisar pedido</button>
+                <noscript>Ative o JavaScript para montar o pedido.</noscript>
+                <section class="order-preview" hidden>
+                    <h3 id="preview-title" tabindex="-1">Confira seu pedido</h3>
+                    <pre id="order-message"></pre>
+                    <p>Ao abrir o WhatsApp, escolha o contato da Full Energy para enviar a mensagem.</p>
+                    <a id="order-share" class="product-order" target="_blank" rel="noopener noreferrer">Abrir no WhatsApp</a>
+                </section>
             </form>
 
             <aside class="order-summary">
-                <span>Produtos dispon&iacute;veis</span>
+                <span>Sugestões de sabores</span>
                 <h2>Escolha seu sabor</h2>
 
                 <div class="summary-item">
