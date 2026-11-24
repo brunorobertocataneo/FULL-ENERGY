@@ -4,10 +4,9 @@ const divider = document.querySelector('.smooth-divider');
 const status = document.querySelector('#slide-status');
 let active = 0;
 
-function showSlide(index, direction) {
+function showSlide(index) {
     slides[active].classList.remove('active');
     active = (index + slides.length) % slides.length;
-    carousel.style.setProperty('--slide-offset', `${direction * 28}px`);
     const slide = slides[active];
     slide.classList.add('active');
     divider.style.setProperty('--divider-background', slide.style.getPropertyValue('--background'));
@@ -15,7 +14,7 @@ function showSlide(index, direction) {
 }
 
 function moveSlide(direction) {
-    showSlide(active + direction, direction);
+    showSlide(active + direction);
 }
 
 document.querySelector('#prev').addEventListener('click', () => moveSlide(-1));
@@ -27,4 +26,4 @@ carousel.addEventListener('keydown', event => {
     }
 });
 
-showSlide(0, 1);
+showSlide(0);

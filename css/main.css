@@ -1000,21 +1000,21 @@ main {
     clip-path: inset(50%);
 }
 
-.item.active .title {
-    animation: slide-in .42s ease-out both;
-}
-
+.item.active .title,
 .item.active .fruit {
-    animation: slide-in .55s ease-out both;
+    animation: toActive .5s ease-out;
 }
 
-.item.active .energy-drink {
-    animation: slide-in .58s cubic-bezier(.19, 1, .22, 1) .045s both;
+@keyframes toActive {
+    from {
+        top: 100%;
+        opacity: 0;
+    }
 }
 
 @keyframes slide-in {
     from {
-        translate: var(--slide-offset, 28px) 14px;
+        translate: 28px 14px;
         opacity: 0;
     }
 }
