@@ -494,7 +494,7 @@ main {
 
 .order-hero {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(320px, 44%);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 44%);
     align-items: center;
     gap: clamp(36px, 6vw, 88px);
     min-height: 72vh;
@@ -537,7 +537,7 @@ main {
     position: relative;
     isolation: isolate;
     width: min(100%, 660px);
-    aspect-ratio: 1.18;
+    aspect-ratio: 1.08;
     margin-inline: auto;
 }
 
@@ -545,13 +545,13 @@ main {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 50% 44%, #b976e895, #a863dc38 42%, transparent 71%);
+    background: radial-gradient(ellipse 50% 44% at 50% 48%, #b976e895, #a863dc38 55%, transparent 100%);
 }
 
 .order-hero-products::after {
     content: "";
     position: absolute;
-    inset: auto 10% 5%;
+    inset: auto 10% 8%;
     height: 10%;
     background: radial-gradient(ellipse, #2011299c, transparent 72%);
 }
@@ -559,8 +559,8 @@ main {
 .order-hero-products img {
     position: absolute;
     z-index: 1;
-    bottom: 10%;
-    left: 24%;
+    bottom: 13%;
+    left: 25%;
     width: 36%;
     height: auto;
     filter: drop-shadow(0 18px 16px #25133280);
@@ -569,14 +569,14 @@ main {
 
 .order-hero-products img:nth-child(2) {
     z-index: 2;
-    bottom: 9%;
+    bottom: 12%;
     left: 50%;
     width: 44%;
     transform: translateX(-50%);
 }
 
 .order-hero-products img:nth-child(3) {
-    left: 76%;
+    left: 75%;
     transform: translateX(-50%) rotate(12deg);
 }
 
