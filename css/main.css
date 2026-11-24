@@ -1120,3 +1120,62 @@ main {
         translate: none;
     }
 }
+
+/* Reserve a row for the flavor name above the product artwork. */
+.product-carousel .item.active {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-items: center;
+    align-content: center;
+    gap: clamp(12px, 2vh, 24px);
+    padding: 116px 12px 82px;
+}
+
+.product-carousel .item .title {
+    position: relative;
+    inset: auto;
+    transform: none;
+    width: min(100%, 1080px);
+    font-size: clamp(2rem, 6vw, 6rem);
+    line-height: 1;
+    text-wrap: balance;
+    animation-name: flavor-title-in;
+}
+
+.product-carousel .item .energy-drink {
+    position: relative;
+    inset: auto;
+    transform: none;
+    height: clamp(225px, 52svh, 620px);
+    max-height: none;
+}
+
+.product-carousel .item .fruit {
+    top: 62%;
+}
+
+@keyframes flavor-title-in {
+    from {
+        translate: 0 70px;
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-carousel .item.active {
+        padding-top: 145px;
+    }
+
+    .product-carousel .item .title {
+        font-size: clamp(1.8rem, 8vw, 3.75rem);
+    }
+
+    .product-carousel .item .energy-drink {
+        height: clamp(210px, 42svh, 440px);
+    }
+
+    .product-carousel .item .energy-drink-wide {
+        width: min(100%, 590px);
+    }
+}
