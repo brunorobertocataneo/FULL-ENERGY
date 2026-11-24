@@ -1147,8 +1147,13 @@ main {
     position: relative;
     inset: auto;
     transform: none;
-    height: clamp(225px, 52svh, 620px);
+    width: min(48vw, 520px);
+    height: clamp(280px, 65svh, 760px);
     max-height: none;
+}
+
+.product-carousel .item .energy-drink-wide {
+    width: min(86vw, 990px);
 }
 
 .product-carousel .item .fruit {
@@ -1172,7 +1177,8 @@ main {
     }
 
     .product-carousel .item .energy-drink {
-        height: clamp(210px, 42svh, 440px);
+        width: min(72vw, 380px);
+        height: clamp(265px, 54svh, 540px);
     }
 
     .product-carousel .item .energy-drink-wide {
