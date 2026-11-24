@@ -26,7 +26,7 @@ git clone https://github.com/brunorobertocataneo/FULL-ENERGY.git
 cd FULL-ENERGY
 ```
 
-Abra o arquivo [INDEX.HTML](INDEX.HTML) no navegador. O projeto não exige instalação de dependências.
+Abra o arquivo [index.html](index.html) no navegador. O projeto não exige instalação de dependências.
 
 Se preferir usar um servidor local, execute o comando abaixo na pasta do projeto com o Python 3 instalado:
 
@@ -34,13 +34,13 @@ Se preferir usar um servidor local, execute o comando abaixo na pasta do projeto
 python -m http.server 8000
 ```
 
-Em sistemas que usam o comando `python3`, execute `python3 -m http.server 8000`. Acesse [localhost:8000/INDEX.HTML](http://localhost:8000/INDEX.HTML) para abrir a página inicial ou [localhost:8000/pedido.html](http://localhost:8000/pedido.html) para ir direto ao formulário. Use `INDEX.HTML` em maiúsculas, como está no repositório.
+Em sistemas que usam o comando `python3`, execute `python3 -m http.server 8000`. Acesse [localhost:8000/index.html](http://localhost:8000/index.html) para abrir a página inicial ou [localhost:8000/pedido.html](http://localhost:8000/pedido.html) para ir direto ao formulário.
 
 ## Estrutura do projeto
 
 | Caminho | Conteúdo |
 | --- | --- |
-| [INDEX.HTML](INDEX.HTML) | Página inicial com carrossel, história da marca, catálogo e contato |
+| [index.html](index.html) | Página inicial com carrossel, história da marca, catálogo e contato |
 | [pedido.html](pedido.html) | Página com o formulário de pedido |
 | [css/main.css](css/main.css) | Estilos compartilhados entre as páginas |
 | [js/script.js](js/script.js) | Navegação do carrossel |
