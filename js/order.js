@@ -3,6 +3,27 @@ const quantities = [...form.querySelectorAll('.flavor-options input')];
 const error = document.querySelector('#order-error');
 const preview = document.querySelector('.order-preview');
 const share = document.querySelector('#order-share');
+const orderMessage = document.querySelector('#order-message');
+const copyStatus = document.querySelector('#copy-status');
+
+document.querySelector('#order-copy').addEventListener('click', async () => {
+    const message = orderMessage.textContent;
+    try {
+        await navigator.clipboard.writeText(message);
+        if (!preview.hidden && orderMessage.textContent === message) {
+            copyStatus.textContent = 'Pedido copiado.';
+        }
+    } catch {
+        if (preview.hidden || orderMessage.textContent !== message) return;
+        const range = document.createRange();
+        range.selectNodeContents(orderMessage);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        copyStatus.textContent = 'Use a opção Copiar do dispositivo para copiar o texto selecionado.';
+    }
+});
+
 const selected = new URLSearchParams(location.search).get('sabor');
 
 const selectedQuantity = quantities.find(input => input.name === selected);
@@ -42,6 +63,7 @@ updateSummary();
 
 form.querySelector('button[type="submit"]').disabled = false;
 form.addEventListener('input', () => {
+    copyStatus.textContent = '';
     preview.hidden = true;
     error.hidden = true;
 });
@@ -74,7 +96,8 @@ form.addEventListener('submit', event => {
     }
 
     const message = lines.join('\n');
-    document.querySelector('#order-message').textContent = message;
+    copyStatus.textContent = '';
+    orderMessage.textContent = message;
     share.href = 'https://wa.me/?text=' + encodeURIComponent(message);
     preview.hidden = false;
     document.querySelector('#preview-title').focus();
